@@ -189,6 +189,15 @@
   .photo-3 {
     background-image: url("p3.png");
   }
+  .photo-4 {
+    background-image: url("p4.png");
+  }
+  .photo-5 {
+    background-image: url("p5.png");
+  }
+  .photo-6 {
+    background-image: url("p6.png");
+  }
   .title-photo {
     width: 100%;
     height: 200px;
