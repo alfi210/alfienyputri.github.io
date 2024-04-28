@@ -170,6 +170,12 @@
   .progress-4 {
     animation: progress-4 4s linear infinite;
   }
+  .progress-5 {
+    animation: progress-5 4s linear infinite;
+  }
+  .progress-6 {
+    animation: progress-6 4s linear infinite;
+  }
   .gallery-photo {
     max-width: 300px;
     height: 200px;
