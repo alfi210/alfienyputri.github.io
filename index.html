@@ -144,8 +144,8 @@
             </form>
         </div>
     </div>
-    
- <!-- Dashboard Page -->
+
+
 <div id="dashboardPage" class="hidden min-h-screen flex flex-col">
     <!-- Header -->
     <header class="bg-white shadow-md">
@@ -166,7 +166,6 @@
     <main class="flex-grow container mx-auto px-4 py-6">
         <div class="bg-white rounded-lg shadow-custom p-6 mb-6">
             <h2 class="text-xl font-semibold mb-4 text-[#016284]">Dashboard Tracking Notaris</h2>
-
             
             <!-- Filter Section -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -175,7 +174,7 @@
                     <select id="filterCabang" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
                         <option value="">Semua Cabang</option>
                         <option value="rawamangun">Rawamangun</option>
-                        <option value="kemayoran">Bekasi</option>
+                        <option value="kemayoran">Kemayoran</option>
                     </select>
                 </div>
                 <div>
@@ -261,7 +260,7 @@
                 <select id="modalCabang" name="modalCabang" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500" required>
                     <option value="">Pilih Cabang</option>
                     <option value="rawamangun">Rawamangun</option>
-                    <option value="kemayoran">Bekasi</option>
+                    <option value="kemayoran">Kemayoran</option>
                 </select>
             </div>
             <div>
@@ -293,7 +292,7 @@
         <h2 id="debiturModalTitle" class="text-xl font-semibold mb-4 text-[#016284]">
         Detail Debitur - <span id="notarisName"></span>
         </h2>
-
+        
         <div class="mb-4">
             <div class="flex border-b">
                 <div class="tab active" data-tab="debiturList">Daftar Debitur</div>
@@ -359,10 +358,10 @@
                         <label for="jenisKredit" class="block text-sm font-medium text-gray-700 mb-1">Jenis Kredit</label>
                         <select id="jenisKredit" name="jenisKredit" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500" required>
                             <option value="">Pilih Jenis Kredit</option>
-                            <option value="KPR">KUR</option>
-                            <option value="KMK">Fleksi</option>
-                            <option value="KI">BWU</option>
-                            <option value="KTA">Griya</option>
+                            <option value="KPR">KPR</option>
+                            <option value="KMK">BWU</option>
+                            <option value="KI">Griya</option>
+                            <option value="KTA">Fleksi</option>
                         </select>
                     </div>
                     <div>
@@ -374,10 +373,10 @@
                 <div>
                     <label for="statusDebitur" class="block text-sm font-medium text-gray-700 mb-1">Status</label>
                     <select id="statusDebitur" name="statusDebitur" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500" required>
-                        <option value="penyerahan">Penyerahan Dokumen</option>
-                        <option value="proses1">Proses Dokumen 1</option>
-                        <option value="proses2">Proses Dokumen 2</option>
-                        <option value="Penyelesaian">Penyelesaian Dokumen</option>
+                        <option value="penyerahan">Penyerahan</option>
+                        <option value="proses1">Proses 1</option>
+                        <option value="proses2">Proses 1</option>
+                        <option value="penyelesaian">Penyelesaian</option>
                     </select>
                 </div>
                 
@@ -400,7 +399,8 @@
     <div class="modal-content" style="max-width: 800px;">
         <span class="close">&times;</span>
         <h2 class="text-xl font-semibold mb-4 bni-orange-text">Detail Proses Kredit</h2>
-                        <div id="debiturDetailContent" class="space-y-4">
+        
+        <div id="debiturDetailContent" class="space-y-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <p class="text-sm text-gray-500">Nama Debitur</p>
@@ -421,8 +421,11 @@
                     <p class="text-sm text-gray-500">Jenis Kredit</p>
                     <p id="detailJenisKredit" class="font-medium"></p>
                 </div>
+                <div>
+                    <p class="text-sm text-gray-500">Plafond</p>
+                    <p id="detailPlafond" class="font-medium"></p>
+                </div>
             </div>
-
             
             <div>
                 <p class="text-sm text-gray-500">Status</p>
@@ -469,11 +472,11 @@
 <script>
     // Sample Data
     const userData = [
-        { id: 1, npp: "P0112345", password: "password", type: "staff", wilayah: "wilayah15", cabang: "rawamangun", name: "Staff Rawamangun" },
-        { id: 2, npp: "P0156789", password: "password", type: "staff", wilayah: "wilayah15", cabang: "kemayoran", name: "Staff Kemayoran" },
-        { id: 3, npp: "P0212345", password: "password", type: "pimpinan", wilayah: "wilayah15", cabang: "rawamangun", name: "Pimpinan Rawamangun" },
-        { id: 4, npp: "P0256789", password: "password", type: "pimpinan", wilayah: "wilayah15", cabang: "kemayoran", name: "Pimpinan Kemayoran" },
-        { id: 5, npp: "P0312345", password: "password", type: "wilayah", wilayah: "wilayah15", cabang: "", name: "User Wilayah 15" }
+        { id: 1, npp: "P00123", password: "password", type: "staff", wilayah: "wilayah15", cabang: "rawamangun", name: "Staff Rawamangun" },
+        { id: 2, npp: "P00345", password: "password", type: "staff", wilayah: "wilayah15", cabang: "kemayoran", name: "Staff Kemayoran" },
+        { id: 3, npp: "P11123", password: "password", type: "pimpinan", wilayah: "wilayah15", cabang: "rawamangun", name: "Pimpinan Rawamangun" },
+        { id: 4, npp: "P11345", password: "password", type: "pimpinan", wilayah: "wilayah15", cabang: "kemayoran", name: "Pimpinan Kemayoran" },
+        { id: 5, npp: "P22123", password: "password", type: "wilayah", wilayah: "wilayah15", cabang: "", name: "User Wilayah 15" }
     ];
 
     const outletData = {
@@ -500,16 +503,16 @@
             id: 1, 
             notarisId: 1, 
             nama: "Debitur A", 
-            tanggalPengajuan: "2025-06-15", 
+            tanggalPengajuan: "2023-06-15", 
             jenisKredit: "KPR", 
             plafond: "500000000", 
-            status: "penyerahan", 
-            keterangan: "Sudah cair pada tanggal 20 Juni 2025",
+            status: "pencairan", 
+            keterangan: "Sudah cair pada tanggal 20 Juni 2023",
             timeline: [
-                { status: "penyerahan", tanggal: "2025-06-15", keterangan: "Sudah melakukan penyerahan dokumen ke notaris" },
-                { status: "proses1", tanggal: "2025-06-17", keterangan: "Sudah dalam proses, namun kekurangan KTP" },
-                { status: "proses2", tanggal: "2025-06-18", keterangan: "Sedang dalam proses tanda tangan" },
-                { status: "penyelesaian", tanggal: "2025-06-19", keterangan: "Dokumen selesai" }
+                { status: "penyerahan", tanggal: "2023-06-15", keterangan: "Pengajuan kredit" },
+                { status: "proses1", tanggal: "2023-06-17", keterangan: "Verifikasi dokumen" },
+                { status: "proses2", tanggal: "2023-06-18", keterangan: "Analisa kredit" },
+                { status: "penyelesaian", tanggal: "2023-06-19", keterangan: "Persetujuan kredit" }
             ]
         },
         { 
@@ -522,8 +525,9 @@
             status: "analisa", 
             keterangan: "Dalam proses analisa kredit",
             timeline: [
-                { status: "penyerahan", tanggal: "2025-06-15", keterangan: "Sudah melakukan penyerahan dokumen ke notaris" },
-                { status: "proses1", tanggal: "2025-06-17", keterangan: "Sudah dalam proses, namun kekurangan KTP" }
+                { status: "penyerahan", tanggal: "2023-06-18", keterangan: "Pengajuan kredit" },
+                { status: "proses1", tanggal: "2023-06-20", keterangan: "Verifikasi dokumen" },
+                { status: "proses2", tanggal: "2023-06-21", keterangan: "Analisa kredit" }
             ]
         },
         { 
@@ -536,9 +540,10 @@
             status: "akad", 
             keterangan: "Akad kredit dijadwalkan tanggal 25 Juni 2023",
             timeline: [
-                { status: "penyerahan", tanggal: "2025-06-15", keterangan: "Sudah melakukan penyerahan dokumen ke notaris" },
-                { status: "proses1", tanggal: "2025-06-17", keterangan: "Sudah dalam proses, namun kekurangan KTP" },
-                { status: "proses2", tanggal: "2025-06-18", keterangan: "Sedang dalam proses tanda tangan" }
+                { status: "penyerahan", tanggal: "2023-06-10", keterangan: "Pengajuan kredit" },
+                { status: "proses1", tanggal: "2023-06-12", keterangan: "Verifikasi dokumen" },
+                { status: "proses2", tanggal: "2023-06-15", keterangan: "Analisa kredit" },
+                { status: "penyelesaian", tanggal: "2023-06-20", keterangan: "Persetujuan kredit" }
             ]
         },
         { 
@@ -551,10 +556,10 @@
             status: "pencairan", 
             keterangan: "Sudah cair pada tanggal 15 Juni 2023",
             timeline: [
-                { status: "penyerahan", tanggal: "2025-06-15", keterangan: "Sudah melakukan penyerahan dokumen ke notaris" },
-                { status: "proses1", tanggal: "2025-06-17", keterangan: "Sudah dalam proses, namun kekurangan KTP" },
-                { status: "proses2", tanggal: "2025-06-18", keterangan: "Sedang dalam proses tanda tangan" },
-                { status: "penyelesaian", tanggal: "2025-06-19", keterangan: "Dokumen selesai" }
+                { status: "penyerahan", tanggal: "2023-06-05", keterangan: "Pengajuan kredit" },
+                { status: "proses1", tanggal: "2023-06-07", keterangan: "Verifikasi dokumen" },
+                { status: "proses2", tanggal: "2023-06-10", keterangan: "Analisa kredit" },
+                { status: "penyelesaian", tanggal: "2023-06-12", keterangan: "Persetujuan kredit" }
             ]
         }
     ];
@@ -1103,156 +1108,188 @@
     }
 
     function isUserAllowedToEdit(debitur) {
-        if (currentUser.type !== 'staff') return false;
-        
-        const notaris = notarisData.find(n => n.id === debitur.notarisId);
-        return notaris && notaris.cabang === currentUser.cabang;
-    }
+    if (currentUser.type !== 'staff') return false;
 
-    function editDebitur(debiturId) {
-        const debitur = debiturData.find(d => d.id == debiturId);
-        if (!debitur) return;
-        
-        document.getElementById('debiturId').value = debitur.id;
-        document.getElementById('namaDebitur').value = debitur.nama;
-        document.getElementById('tanggalPengajuan').value = debitur.tanggalPengajuan;
-        document.getElementById('jenisKredit').value = debitur.jenisKredit;
-        document.getElementById('plafond').value = formatCurrency(debitur.plafond);
-        document.getElementById('statusDebitur').value = debitur.status;
-        document.getElementById('keterangan').value = debitur.keterangan;
-        
-        // Switch to add tab
-        document.querySelector('.tab[data-tab="addDebitur"]').click();
-    }
+    const notaris = notarisData.find(n => n.id === debitur.notarisId);
+    return notaris && notaris.cabang === currentUser.cabang;
+}
 
-    function viewDebiturDetail(debiturId) {
-        const debitur = debiturData.find(d => d.id == debiturId);
-        if (!debitur) return;
-        
-        selectedDebiturId = debiturId;
-        
-        const notaris = notarisData.find(n => n.id === debitur.notarisId);
-        
-        document.getElementById('detailNamaDebitur').textContent = debitur.nama;
-        document.getElementById('detailNamaNotaris').textContent = notaris ? notaris.nama : '-';
-        document.getElementById('detailTanggalPengajuan').textContent = formatDate(debitur.tanggalPengajuan);
-        document.getElementById('detailJenisKredit').textContent = debitur.jenisKredit;
-        document.getElementById('detailPlafond').textContent = formatCurrency(debitur.plafond);
-        
-        const statusElement = document.getElementById('detailStatus');
-        statusElement.innerHTML = `
-            <span class="px-2 py-1 rounded-full text-xs ${getStatusClass(debitur.status)}">
-                ${capitalizeFirstLetter(debitur.status)}
-            </span>
-        `;
-        
-        document.getElementById('detailKeterangan').textContent = debitur.keterangan || '-';
-        
-        // Render timeline
-        const timelineContainer = document.getElementById('timelineContainer');
-        timelineContainer.innerHTML = '';
-        
-        if (debitur.timeline && debitur.timeline.length > 0) {
-            debitur.timeline.forEach((item, index) => {
-                const timelineItem = document.createElement('div');
-                timelineItem.className = 'flex';
-                
-                timelineItem.innerHTML = `
-                    <div class="mr-4 relative">
-                        <div class="w-3 h-3 rounded-full ${getStatusClass(item.status)} mt-1.5"></div>
-                        ${index < debitur.timeline.length - 1 ? '<div class="h-full w-0.5 bg-gray-200 absolute top-3 left-1.5 -ml-px"></div>' : ''}
-                    </div>
-                    <div class="pb-4">
-                        <p class="text-sm font-medium">${capitalizeFirstLetter(item.status)}</p>
-                        <p class="text-xs text-gray-500">${formatDate(item.tanggal)}</p>
-                        <p class="text-sm mt-1">${item.keterangan || '-'}</p>
-                    </div>
-                `;
-                
-                timelineContainer.appendChild(timelineItem);
-            });
-        } else {
-            timelineContainer.innerHTML = '<p class="text-gray-500">Tidak ada data timeline</p>';
-        }
-        
-        // Show/hide edit button based on user type
-        const editButtonContainer = document.getElementById('editButtonContainer');
-        if (currentUser.type === 'staff' && isUserAllowedToEdit(debitur)) {
-            editButtonContainer.style.display = 'flex';
-            
-            // Add event listener to edit button
-            document.getElementById('editDebiturBtn').addEventListener('click', function() {
-                debiturDetailModal.style.display = 'none';
-                editDebitur(debiturId);
-            });
-        } else {
-            editButtonContainer.style.display = 'none';
-        }
-        
-        debiturDetailModal.style.display = 'block';
-    }
+function editDebitur(debiturId) {
+    const debitur = debiturData.find(d => d.id == debiturId);
+    if (!debitur) return;
 
-    function confirmDelete(type, id) {
-        deleteType = type;
-        deleteId = id;
-        
-        let confirmText = '';
-        if (type === 'notaris') {
-            const notaris = notarisData.find(n => n.id == id);
-            confirmText = `Apakah Anda yakin ingin menghapus notaris "${notaris.nama}"? Semua data debitur terkait juga akan dihapus.`;
-        } else if (type === 'debitur') {
-            const debitur = debiturData.find(d => d.id == id);
-            confirmText = `Apakah Anda yakin ingin menghapus data debitur "${debitur.nama}"?`;
-        }
-        
-        document.getElementById('deleteConfirmText').textContent = confirmText;
-        deleteConfirmModal.style.display = 'block';
-    }
+    document.getElementById('debiturId').value = debitur.id;
+    document.getElementById('namaDebitur').value = debitur.nama;
+    document.getElementById('tanggalPengajuan').value = debitur.tanggalPengajuan;
+    document.getElementById('jenisKredit').value = debitur.jenisKredit;
+    document.getElementById('plafond').value = formatCurrency(debitur.plafond);
+    document.getElementById('statusDebitur').value = debitur.status;
+    document.getElementById('keterangan').value = debitur.keterangan;
 
-    // Helper functions
-    function formatDate(dateString) {
-        if (!dateString) return '-';
-        
-        const date = new Date(dateString);
-        return date.toLocaleDateString('id-ID', {
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric'
+    // Switch to add tab
+    document.querySelector('.tab[data-tab="addDebitur"]').click();
+}
+
+function viewDebiturDetail(debiturId) {
+    const debitur = debiturData.find(d => d.id == debiturId);
+    if (!debitur) return;
+
+    selectedDebiturId = debiturId;
+    const notaris = notarisData.find(n => n.id === debitur.notarisId);
+
+    document.getElementById('detailNamaDebitur').textContent = debitur.nama;
+    document.getElementById('detailNamaNotaris').textContent = notaris ? notaris.nama : '-';
+    document.getElementById('detailTanggalPengajuan').textContent = formatDate(debitur.tanggalPengajuan);
+    document.getElementById('detailJenisKredit').textContent = debitur.jenisKredit;
+    document.getElementById('detailPlafond').textContent = formatCurrency(debitur.plafond);
+
+    const statusElement = document.getElementById('detailStatus');
+    statusElement.innerHTML = `
+        <span class="px-2 py-1 rounded-full text-xs ${getStatusClass(debitur.status)}">
+            ${capitalizeFirstLetter(debitur.status)}
+        </span>
+    `;
+
+    document.getElementById('detailKeterangan').textContent = debitur.keterangan || '-';
+
+    // Render timeline
+    const timelineContainer = document.getElementById('timelineContainer');
+    timelineContainer.innerHTML = '';
+
+    const timelineItems = [];
+
+    // Penyerahan
+    timelineItems.push({
+        status: 'penyerahan',
+        tanggal: debitur.tanggalPengajuan,
+        keterangan: debitur.keterangan || '-'
+    });
+
+    // Proses 1
+    const proses1Date = addDays(debitur.tanggalPengajuan, 15);
+    if (new Date() >= new Date(proses1Date)) {
+        const proses1Keterangan = debitur.keteranganProses1 || '-';
+        timelineItems.push({
+            status: 'proses 1',
+            tanggal: proses1Date,
+            keterangan: proses1Keterangan
         });
     }
 
-    function formatCurrency(value) {
-        if (!value) return '0';
-        
-        return parseInt(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    // Proses 2
+    const proses2Date = addDays(debitur.tanggalPengajuan, 25);
+    if (new Date() >= new Date(proses2Date)) {
+        const proses2Keterangan = debitur.keteranganProses2 || '-';
+        timelineItems.push({
+            status: 'proses 2',
+            tanggal: proses2Date,
+            keterangan: proses2Keterangan
+        });
     }
 
-    function capitalizeFirstLetter(string) {
-        if (!string) return '';
-        return string.charAt(0).toUpperCase() + string.slice(1);
+    // Penyelesaian
+    if (debitur.status === 'penyelesaian') {
+        timelineItems.push({
+            status: 'penyelesaian',
+            tanggal: debitur.updatedAt || new Date().toISOString().split('T')[0],
+            keterangan: debitur.keterangan || '-'
+        });
     }
 
-    function getStatusClass(status) {
-        switch (status) {
-            case 'pengajuan':
-                return 'bg-blue-100 text-blue-800';
-            case 'verifikasi':
-                return 'bg-purple-100 text-purple-800';
-            case 'analisa':
-                return 'bg-yellow-100 text-yellow-800';
-            case 'persetujuan':
-                return 'bg-indigo-100 text-indigo-800';
-            case 'akad':
-                return 'bg-orange-100 text-orange-800';
-            case 'pencairan':
-                return 'bg-green-100 text-green-800';
-            case 'aktif':
-                return 'bg-green-100 text-green-800';
-            case 'nonaktif':
-                return 'bg-red-100 text-red-800';
-            default:
-                return 'bg-gray-100 text-gray-800';
-        }
+    if (timelineItems.length > 0) {
+        timelineItems.forEach((item, index) => {
+            const timelineItem = document.createElement('div');
+            timelineItem.className = 'flex';
+
+            timelineItem.innerHTML = `
+                <div class="mr-4 relative">
+                    <div class="w-3 h-3 rounded-full ${getStatusClass(item.status)} mt-1.5"></div>
+                    ${index < timelineItems.length - 1 ? '<div class="h-full w-0.5 bg-gray-200 absolute top-3 left-1.5 -ml-px"></div>' : ''}
+                </div>
+                <div class="pb-4">
+                    <p class="text-sm font-medium">${capitalizeFirstLetter(item.status)}</p>
+                    <p class="text-xs text-gray-500">${formatDate(item.tanggal)}</p>
+                    <p class="text-sm mt-1">${item.keterangan}</p>
+                </div>
+            `;
+            timelineContainer.appendChild(timelineItem);
+        });
+    } else {
+        timelineContainer.innerHTML = '<p class="text-gray-500">Tidak ada data timeline</p>';
     }
 
+    // Show/hide edit button based on user type
+    const editButtonContainer = document.getElementById('editButtonContainer');
+    if (currentUser.type === 'staff' && isUserAllowedToEdit(debitur)) {
+        editButtonContainer.style.display = 'flex';
+
+        document.getElementById('editDebiturBtn').addEventListener('click', function () {
+            debiturDetailModal.style.display = 'none';
+            editDebitur(debiturId);
+        });
+    } else {
+        editButtonContainer.style.display = 'none';
+    }
+
+    debiturDetailModal.style.display = 'block';
+}
+
+function confirmDelete(type, id) {
+    deleteType = type;
+    deleteId = id;
+
+    let confirmText = '';
+    if (type === 'notaris') {
+        const notaris = notarisData.find(n => n.id == id);
+        confirmText = `Apakah Anda yakin ingin menghapus notaris "${notaris.nama}"? Semua data debitur terkait juga akan dihapus.`;
+    } else if (type === 'debitur') {
+        const debitur = debiturData.find(d => d.id == id);
+        confirmText = `Apakah Anda yakin ingin menghapus data debitur "${debitur.nama}"?`;
+    }
+
+    document.getElementById('deleteConfirmText').textContent = confirmText;
+    deleteConfirmModal.style.display = 'block';
+}
+
+// Helper functions
+function formatDate(dateString) {
+    if (!dateString) return '-';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('id-ID', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+    });
+}
+
+function formatCurrency(value) {
+    if (!value) return '0';
+    return parseInt(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
+
+function capitalizeFirstLetter(string) {
+    if (!string) return '';
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function addDays(dateString, days) {
+    const date = new Date(dateString);
+    date.setDate(date.getDate() + days);
+    return date.toISOString().split('T')[0];
+}
+
+function getStatusClass(status) {
+    switch (status) {
+        case 'penyerahan':
+            return 'bg-blue-100 text-blue-800';
+        case 'proses 1':
+            return 'bg-orange-100 text-orange-800';
+        case 'proses 2':
+            return 'bg-red-100 text-red-800';
+        case 'penyelesaian':
+            return 'bg-green-100 text-green-800';
+        default:
+            return 'bg-gray-100 text-gray-800';
+    }
+}
 </script>
